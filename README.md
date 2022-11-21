@@ -33,3 +33,42 @@ source .devops/bin/activate
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+---
+## Project Files
+
+Below you will find extra information about the project file structure.
+
+```
+root
+├── Dockerfile
+├── Makefile
+├── README.md
+├── app.py
+├── make_prediction.sh
+├── model_data
+│   ├── boston_housing_prediction.joblib
+│   └── housing.csv
+├── output_txt_files
+│   ├── docker_out.txt
+│   └── kubernetes_out.txt
+├── requirements.txt
+├── run_docker.sh
+├── run_kubernetes.sh
+└── upload_docker.sh
+```
+
+### Application 
+* **app.py** - Main project file - reads the machine learning model and provides predictions through the endpoint `/predict`
+* **model_data/** - Stores the trained model and its original source.
+* **requirements.txt** - Python project dependency requirements.
+
+### Build Scripts
+* **Makefile** - Handles standard build steps from command line, e.g., Setup, Install, etc.
+* **Dockerfile** - Docker image blueprint for local and k8s deployment.
+
+### Executable Scripts
+* **make_prediction.sh** - Request a prediction from the trained model via Rest/HTTP endpoint
+* **run_docker.sh** - Build and start a docker container with the Python project running on port `8000`
+* **run_kubernetes.sh** - Setup a k8s deployment with the image built previously and forward requests from local `8000` port to container
+* **upload_docker.sh** - Prepare and push the image to Docker Hub
