@@ -1,10 +1,9 @@
 ~~~ k8s script ~~~
 
 $ ./run_kubernetes.sh
-
 error: failed to create deployment: deployments.apps "udacity-devops-ml" already exists
 NAME                                READY   STATUS    RESTARTS   AGE
-udacity-devops-ml-78d865858-btr9x   1/1     Running   0          43s
+udacity-devops-ml-78d865858-gdpfn   1/1     Running   0          6s
 Forwarding from 0.0.0.0:8000 -> 80
 Handling connection for 8000
 
